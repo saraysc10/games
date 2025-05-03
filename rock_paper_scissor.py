@@ -4,36 +4,36 @@ import tkinter.messagebox as msgbox
 import tkinter.simpledialog as simpledialog
 
 def jogar():
-    opcoes = ["rock", "paper", "scissors"]
+    options = ["rock", "paper", "scissors"]
 
-    # Janela de boas-vindas
-    msgbox.showinfo("Rock, Paper and Scissors", "Bem-vindo ao jogo!")
+    # Welcome phrase
+    msgbox.showinfo("Rock, Paper and Scissors", "Welcome to the game!")
 
-    # Perguntar ao jogador a escolha
-    jogador = simpledialog.askstring("Escolha", "Digite pedra, papel ou tesoura:").lower()
+    # Ask the player to choose
+    player = simpledialog.askstring("Choose", "Type rock, paper or scissors:").lower()
 
-    if jogador not in opcoes:
-        msgbox.showwarning("Erro", "Escolha inválida! Tente novamente.")
+    if player not in options:
+        msgbox.showwarning("Error", "Invalid selection! Please try again.")
         return
 
-    # # Escolha do computador
-    computador = random.choice(opcoes)
+    # # Make the computer choose
+    computer = random.choice(options)
 
     # Mostrar escolhas
-    msgbox.showinfo("Escolhas", f"Você escolheu: {jogador}\nComputador escolheu: {computador}")
+    msgbox.showinfo("Result", f"You chose: {player}\nComputer chose: {computer}")
 
     # Verificação de vencedor
-    if jogador == computador:
-        resultado = "Empate!"
-    elif (jogador == "pedra" and computador == "tesoura") or \
-         (jogador == "papel" and computador == "pedra") or \
-         (jogador == "tesoura" and computador == "papel"):
-        resultado = "Você venceu! 🎉"
+    if player == computer:
+        result = "Even!"
+    elif (player == "rock" and computer == "scissors") or \
+         (player == "paper" and computer == "rock") or \
+         (player == "scissors" and computer == "paper"):
+        result = "You won! 🎉"
     else:
-        resultado = "Você perdeu! 😢"
+        result = "You lost! 😢"
 
-    # Mostrar resultado final
-    msgbox.showinfo("Resultado", resultado)
+    # Show final result
+    msgbox.showinfo("Final Result: ", result)
 
 # Importante: Executar o jogo apenas se este arquivo for executado diretamente
 if __name__ == "__main__":
